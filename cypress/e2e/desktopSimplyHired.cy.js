@@ -20,7 +20,7 @@ describe('Desktop View', function()
             {
                 cy.get('li').eq(list).within(() =>
                 {
-                    cy.get('h3').invoke('text').then(txt => {
+                    cy.get('[data-testid="searchSerpJob"]').invoke('text').then(txt => {
                         cy.log(txt)
                     })
                 })
