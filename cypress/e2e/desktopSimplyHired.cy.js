@@ -18,8 +18,12 @@ describe('Desktop View', function()
         cy.get('#job-list').within(() => {
             for(var list = 0; list < 5; list++) 
             {
-                cy.get('li').eq(list).click()
-                cy.wait(2000)
+                cy.get('li').eq(list).within(() =>
+                {
+                    cy.get('h3').invoke('text').then(txt => {
+                        cy.log(txt)
+                    })
+                })
             }
         })
     })
